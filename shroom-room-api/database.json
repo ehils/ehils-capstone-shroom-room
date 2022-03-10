@@ -1,0 +1,147 @@
+{
+    "users": [
+       {
+           "id": 1,
+           "name": "Derek Chillz",
+           "email": "drchills@notmail.com"
+       },
+       {
+        "id": 2,
+        "name": "Ryan Brolle",
+        "email": "ryanchef@notmail.com"
+       }
+    ],
+    "recipes": [
+        {
+            "id": 1,
+            "userId": 1,
+            "dateSubmitted": "",
+            "title": "Lion's Mane Medalions",
+            "img": "https://wickedhealthyfood.com/blog/wp-content/uploads/2017/04/Liver-and-onions-1024x819.jpg",
+            "description": "Lion's main mushrooms cooked to a crispy brown texture in butter, lightly seasoned with salt and pepper.  Produces a delicate, juicy, and meaty medalion that pairs great with any classic dinner.",
+            "topicId": 1
+        }
+    ],
+    "ingredients": [
+        {
+            "id": 1,
+            "name": "lion's mane mushrooms",
+            "recipeId": 1,
+            "amount": "8 ounces"
+        },    
+        {
+            "id": 2,
+            "name": "Butter",
+            "recipeId": 2,
+            "amount": "tablespoon"
+        },    
+        {
+            "id": 3,
+            "name": "salt and pepper",
+            "recipeId": 1,
+            "amount": "to taste"
+        },    
+        {
+            "id": 4,
+            "name": "",
+            "recipeId": 2,
+            "amount": ""
+        },    
+        {
+            "id": 5,
+            "name": "",
+            "recipeId": 2,
+            "amount": ""
+        },    
+        {
+            "id": 6,
+            "name": "",
+            "recipeId": 2,
+            "amount": ""
+        },    
+        {
+            "id": 7,
+            "name": "",
+            "recipeId": 2,
+            "amount": ""
+        },    
+        {
+            "id": 8,
+            "name": "",
+            "recipeId": 2,
+            "amount": ""
+        },    
+        {
+            "id": 9,
+            "name": "",
+            "recipeId": 2,
+            "amount": ""
+        }    
+    ],
+    "steps": [
+        {
+            "id": 1,
+            "step": "Slice the mushrooms 1/2 inch thick",
+            "recipeId": 1
+        },
+        {
+            "id": 2,
+            "step": "In a medium skillet, heat butter",
+            "recipeId": 1
+        },
+        {
+            "id": 3,
+            "step": "Add the mushrooms and cook on medium-high heat until browned, about 4 minutes",
+            "recipeId": 1
+        },
+        {
+            "id": 4,
+            "step": "Flip and allow the mushrooms to brown for another 2-4 minutes",
+            "recipeId": 1
+        },
+        {
+            "id": 5,
+            "step": "Stir in the salt and pepper",
+            "recipeId": 1
+        },
+        {
+            "id": 6,
+            "step": "Serve",
+            "recipeId": 1
+        },
+        {
+            "id": 7,
+            "step": "",
+            "recipeId": 2
+        },
+        {
+            "id": 8,
+            "step": "",
+            "recipeId": 2
+        },
+        {
+            "id": 9,
+            "step": "",
+            "recipeId": 2
+        },
+        {
+            "id": 10,
+            "step": "",
+            "recipeId": 2
+        }
+    ],
+    "topics": [
+        {
+            "id": 1,
+            "type": "cooking"
+        },
+        {
+            "id": 2,
+            "type": "teas"
+        },
+        {
+            "id": 3,
+            "type": "medicinal"
+        }
+    ]
+}

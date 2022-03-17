@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import { ShroomRoom } from './components/ShroomRoom';
 import './index.css';
+import "bootstrap/dist/css/bootstrap.min.css"
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

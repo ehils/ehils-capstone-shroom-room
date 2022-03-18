@@ -46,14 +46,14 @@ export const RecipeDetail = () => {
                         {recipe.title}
                     </h2>
                     <p>Submitted by: {recipe.user?.name} </p>
-                    <p>Date: {recipe.date}</p>
+                    <p>Date: {recipe.dateSubmitted}</p>
                     <p>Topic: {recipe.topic?.type}</p>
                     <img src={recipe?.img} alt="lion's mane medallions" />
                     <p>Ingredients:</p>
                     <ul>
                         {
                             ingredients.map(ingredient => {
-                                return <li key={`ingredient--${ingredient.id}`}>{ingredient.name}</li>
+                                return <li key={`ingredient--${ingredient.id}`}>{ingredient.ingredient}</li>
                             })
                         }
                     </ul>

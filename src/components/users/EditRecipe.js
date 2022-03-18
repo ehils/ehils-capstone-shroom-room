@@ -12,7 +12,6 @@ import { getRecipeDetail, getRecipeIngredients, getRecipeSteps, getTopics } from
 export const EditRecipe = () => {
     // define state for the recipe object
     const {recipeId} = useParams()
-    const [currentRecipe, setCurrentRecipe] = useState({})
     const [recipe, updateRecipe] = useState({
         title: "",
         description: "",
@@ -45,7 +44,7 @@ export const EditRecipe = () => {
         () => {
             getRecipeDetail(recipeId)
                 .then((data) => {
-                    setCurrentRecipe(data)
+                    updateRecipe(data)
                 })
         }, []
     )
@@ -53,8 +52,8 @@ export const EditRecipe = () => {
         () => {
             getRecipeSteps(recipeId)
                 .then((data) => {
-                    
-                    setConstStepsArray(data)
+                    let copy = [...data]
+                    setConstStepsArray(copy)
                     setStepArray(data)
                 })
         }, []
@@ -64,7 +63,8 @@ export const EditRecipe = () => {
         () => {
             getRecipeIngredients(recipeId)
                 .then((data) => {
-                    setConstIngredientsArray(data)
+                    let copy = [...data]
+                    setConstIngredientsArray(copy)
                     setIngredientArray(data)
                 })
         }, []
@@ -94,6 +94,7 @@ export const EditRecipe = () => {
         return fetch(`http://localhost:8088/recipes/${recipeId}`, fetchOption)
             .then((res) => res.json())
             .then((res) => {
+                debugger
                 constStepsArray.forEach(step => {
                     return fetch(`http://localhost:8088/steps/${step.id}`, {
                         method: "DELETE"
@@ -211,13 +212,13 @@ export const EditRecipe = () => {
                             onChange={
                                 (e) => {
                                     const copy = { ...recipe }
-                                    copy.description = e.target.value
+                                    copy.title = e.target.value
                                     updateRecipe(copy)
                                 }
                             }
                             required autoFocus
                             type="text"
-                            value={currentRecipe.title}
+                            value={recipe.title}
                             className="form-control"
                             placeholder="Enter Your Recipe Title Here"
                         />
@@ -236,7 +237,7 @@ export const EditRecipe = () => {
                             }
                             required autoFocus
                             type="text"
-                            value={currentRecipe.description}
+                            value={recipe.description}
                             className="form-control"
                             placeholder="Brief description of recipe"
                         />
@@ -249,7 +250,7 @@ export const EditRecipe = () => {
                             <ul>
                                 {
                                     ingredientsArray.map((ingredient) => {
-                                        return <li key={`ingredient--${ingredient.id}`}>{ingredient.ingredient}<button id={ingredientsArray.indexOf(ingredient)} onClick={
+                                        return <li key={`ingredient--${ingredient.ingredient}`}>{ingredient.ingredient}<button id={ingredientsArray.indexOf(ingredient)} onClick={
                                             (e) => {
                                                 deleteIngredient(e.target.id)
                                             }
@@ -285,7 +286,7 @@ export const EditRecipe = () => {
                                 {
                                     stepsArray.map((step) => {
                                         
-                                        return <li key={`step--${step.id}`}>{step.step}<button id={stepsArray.indexOf(step)}
+                                        return <li key={`step--${step.step}`}>{step.step}<button id={stepsArray.indexOf(step)}
                                             onClick={
                                                 (e) => {
                                                     deleteStep(e.target.id)
@@ -315,7 +316,7 @@ export const EditRecipe = () => {
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="recipe__topic">Shroom Topic:</label>
-                        <select value={currentRecipe.topicId}
+                        <select value={recipe.topicId}
                             defaultValue={"0"}
                             
                             onChange={(e) => {
@@ -347,7 +348,7 @@ export const EditRecipe = () => {
                             }
                             required autoFocus
                             type="text"
-                            value={currentRecipe.img}
+                            value={recipe.img}
                             className="form-control"
                             placeholder="enter image link here"
                         />

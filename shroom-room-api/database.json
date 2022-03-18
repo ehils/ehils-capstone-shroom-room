@@ -14,6 +14,11 @@
       "name": "Tony Cheese",
       "email": "cheeseybreezy69@notmail.com",
       "id": 3
+    },
+    {
+      "name": "Kevin Kevington",
+      "email": "kevykev@notmail.com",
+      "id": 4
     }
   ],
   "recipes": [
@@ -28,67 +33,31 @@
     },
     {
       "userId": 1,
-      "title": "",
-      "description": "",
-      "topicId": 1,
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "dateSubmitted": "3/17/2022, 11:56:34 AM",
-      "title": "test 3",
-      "description": "test 3",
-      "topicId": 3,
+      "dateSubmitted": "3/17/2022, 2:00:55 PM",
+      "title": "Test 1",
       "img": "",
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "dateSubmitted": "3/17/2022, 12:02:25 PM",
-      "title": "test 4",
-      "description": "test 5",
-      "topicId": 1,
-      "img": "",
-      "id": 4
+      "description": "test 1",
+      "topicId": 2,
+      "id": 5
     }
   ],
   "ingredients": [
     {
       "id": 1,
-      "name": "8 ounces lion's mane mushrooms",
+      "ingredient": "8 ounces lion's mane mushrooms",
       "recipeId": 1,
       "amount": "8 ounces"
     },
     {
       "id": 3,
-      "name": "salt and pepper to taste",
+      "ingredient": "salt and pepper to taste",
       "recipeId": 1,
       "amount": "to taste"
     },
     {
-      "recipeId": 3,
-      "ingredient": "2",
-      "id": 4
-    },
-    {
-      "recipeId": 3,
-      "ingredient": "1",
-      "id": 5
-    },
-    {
-      "recipeId": 4,
-      "ingredient": "2",
-      "id": 6
-    },
-    {
-      "recipeId": 4,
-      "ingredient": "1",
-      "id": 7
-    },
-    {
-      "recipeId": 2,
-      "ingredient": "1",
-      "id": 8
+      "recipeId": 5,
+      "ingredient": "new ing",
+      "id": 16
     }
   ],
   "steps": [
@@ -123,54 +92,14 @@
       "recipeId": 1
     },
     {
-      "recipeId": 2,
-      "step": "2",
-      "id": 8
+      "recipeId": 5,
+      "step": "step 1",
+      "id": 25
     },
     {
-      "recipeId": 3,
-      "step": "1",
-      "id": 9
-    },
-    {
-      "recipeId": 3,
-      "step": "2",
-      "id": 10
-    },
-    {
-      "recipeId": 3,
-      "step": "3",
-      "id": 11
-    },
-    {
-      "recipeId": 4,
-      "step": "1",
-      "id": 12
-    },
-    {
-      "recipeId": 4,
-      "step": "2",
-      "id": 13
-    },
-    {
-      "recipeId": 4,
-      "step": "3",
-      "id": 14
-    },
-    {
-      "recipeId": 2,
-      "step": "1",
-      "id": 15
-    },
-    {
-      "recipeId": 2,
-      "step": "3",
-      "id": 16
-    },
-    {
-      "recipeId": 2,
-      "step": "4 comg",
-      "id": 17
+      "recipeId": 5,
+      "step": "new step",
+      "id": 26
     }
   ],
   "topics": [

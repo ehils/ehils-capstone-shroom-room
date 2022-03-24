@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Button, Container } from "react-bootstrap";
+import { Typeahead } from "react-bootstrap-typeahead";
+import "react-bootstrap-typeahead/css/Typeahead.css"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { getTopics } from "../ApiManager";
+import { getMushrooms, getTopics } from "../ApiManager";
 // this module will be create the form to add recipes
 // 
 // 
@@ -15,11 +18,14 @@ export const AddRecipe = () => {
 
     })
     // initialize state for steps
-    
+
     const [currentStep, setCurrentStep] = useState("")
     const [stepsArray, setStepArray] = useState([])
     const [currentIngredient, setCurrentIngredient] = useState("")
     const [ingredientsArray, setIngredientArray] = useState([])
+    const [multiShrooms, setMultiShrooms] = useState([]);
+    const [shrooms, setShrooms] = useState([])
+
 
 
     // intialize topic state
@@ -48,7 +54,7 @@ export const AddRecipe = () => {
             description: recipe.description,
             topicId: recipe.topicId,
             img: recipe.img
-            
+
         }
 
         const fetchOption = {
@@ -78,7 +84,7 @@ export const AddRecipe = () => {
                         },
                         body: JSON.stringify(newStep)
                     }
-            
+
                     return fetch("http://localhost:8088/steps", fetchOption)
 
                 })
@@ -98,11 +104,31 @@ export const AddRecipe = () => {
                         },
                         body: JSON.stringify(newIngredient)
                     }
-            
+
                     return fetch("http://localhost:8088/ingredients", fetchOption)
 
                 })
-                
+                multiShrooms.forEach((currentShroom) => {
+                    const recipeId = res.id
+                    const shroom = currentShroom.id
+
+                    const newRecipeShroom = {
+                        recipeId: recipeId,
+                        shroomId: shroom
+                    }
+
+                    const fetchOption = {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(newRecipeShroom)
+                    }
+
+                    return fetch("http://localhost:8088/recipeShrooms", fetchOption)
+
+                })
+
             })
             .then(() => {
                 history.push(`/myrecipes/${parseInt(localStorage.getItem("shroom_room_user"))}`)
@@ -140,6 +166,16 @@ export const AddRecipe = () => {
         setIngredientArray(copy)
     }
 
+    useEffect(
+        () => {
+            getMushrooms()
+                .then((data) =>
+                    setShrooms(data)
+                )
+        },
+        []
+    )
+
     // current step and current ingredient state
 
 
@@ -158,8 +194,9 @@ export const AddRecipe = () => {
     // function that removesingredients
 
     // return the jsx for form
+    
     return (
-        <>
+        <><Container>
             <form className="recipeForm">
                 <h2 className="recipeForm__title">Add Your Recipe</h2>
                 <fieldset>
@@ -198,7 +235,7 @@ export const AddRecipe = () => {
                         />
                     </div>
                 </fieldset>
-                
+
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="ingredients">Recipe Ingredients:</label>
@@ -206,11 +243,11 @@ export const AddRecipe = () => {
                             <ul>
                                 {
                                     ingredientsArray.map((ingredient) => {
-                                        return <li key={`ingredient__${ingredient++}`}>{ingredient}<button id={ingredientsArray.length} onClick={
+                                        return <li key={`ingredient__${ingredient++}`}>{ingredient}<Button size="sm" id={ingredientsArray.length} onClick={
                                             (e) => {
                                                 deleteIngredient(e.target.id)
                                             }
-                                        }>Delete Ingredient</button></li>
+                                        }>Delete Ingredient</Button></li>
                                     })
                                 }
                             </ul>
@@ -229,27 +266,27 @@ export const AddRecipe = () => {
                             name="ingredients"
                             className="form-control"
                             placeholder="enter ingredient here"
-                        /><button onClick={
+                        /><Button size="sm" onClick={
                             (e) => addIngredient(e, currentIngredient)
-                            }>Add ingredients</button>
+                        }>Add ingredients</Button>
                     </div>
                 </fieldset>
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="steps">Recipe Steps:</label>
                         <div>
-                            <ul>
+                            <ol>
                                 {
                                     stepsArray.map((step) => {
-                                        return <li key={`step__${step++}`}>{step}<button id={stepsArray.length}
+                                        return <li key={`step__${step++}`}>{step}<Button size="sm" id={stepsArray.length}
                                             onClick={
                                                 (e) => {
                                                     deleteStep(e.target.id)
                                                 }
-                                            }>Delete Step</button></li>
+                                            }>Delete Step</Button></li>
                                     })
                                 }
-                            </ul>
+                            </ol>
                         </div>
                         <input
                             onChange={
@@ -257,7 +294,7 @@ export const AddRecipe = () => {
                                     let copy = { ...currentStep }
                                     copy = e.target.value
                                     setCurrentStep(copy)
-                                    
+
                                 }
                             }
                             required autoFocus
@@ -266,7 +303,7 @@ export const AddRecipe = () => {
                             name="steps"
                             className="form-control"
                             placeholder="enter step here"
-                        /><button onClick={(e) => addStep(e, currentStep)}>Add Step</button>
+                        /><Button size="sm" onClick={(e) => addStep(e, currentStep)}>Add Step</Button>
                     </div>
                 </fieldset>
                 <fieldset>
@@ -281,7 +318,7 @@ export const AddRecipe = () => {
                             }}>
                             <option value="0">Select a topic..</option>
                             {topics.map(topic => {
-                                return <option key={`topic--${topic.id}`}value={topic.id}>
+                                return <option key={`topic--${topic.id}`} value={topic.id}>
                                     {topic.type}
                                 </option>
                             })
@@ -289,6 +326,18 @@ export const AddRecipe = () => {
 
                         </select>
                     </div>
+                </fieldset>
+                <fieldset>
+                    <Typeahead
+                    
+                        id="basic-typeahead-multiple"
+                        labelKey="name"
+                        multiple
+                        onChange={setMultiShrooms}
+                        options={shrooms}
+                        placeholder="Choose related mushrooms"
+                        selected={multiShrooms}
+                    />
                 </fieldset>
                 <fieldset>
                     <div className="form-group">
@@ -308,10 +357,11 @@ export const AddRecipe = () => {
                         />
                     </div>
                 </fieldset>
-                <button className="btn btn-primary" onClick={saveRecipe}>
+                <Button className="btn btn-primary" onClick={saveRecipe}>
                     Submit Recipe
-                </button>
+                </Button>
             </form>
+            </Container>
         </>
     )
 }

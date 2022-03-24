@@ -21,7 +21,7 @@ export const postUser = (user) => {
     })
       .then(res => res.json())
 }
-// AddRecipe Line
+// AddRecipe Line 32
 export const getTopics = () => {
     return fetch("http://localhost:8088/topics")
         .then(res => res.json())
@@ -48,13 +48,34 @@ export const getRecipeDetail = (recipeId) => {
     return fetch(`http://localhost:8088/recipes/${recipeId}?_expand=user&_expand=topic`)
         .then(res => res.json())
 }
-// Line 60
+// Edit RecipeLine 60
 export const getRecipeIngredients = (recipeId) => {
     return fetch(`http://localhost:8088/ingredients?recipeId=${recipeId}`)
         .then(res => res.json())
 }
-// Line 52
+// Edit Recipe Line 52
 export const getRecipeSteps = (recipeId) => {
     return fetch(`http://localhost:8088/steps?recipeId=${recipeId}`)
         .then(res => res.json())
 }
+// Shroom Detail Line 10
+export const getMushroomDetail = (shroomId) => {
+    return fetch(`http://localhost:8088/shrooms/${shroomId}?_expand=shroomToxicity`)
+        .then(res => res.json())
+}
+// AddRecipe Line 171
+// EditRecipe Line 42
+export const getMushrooms = () => {
+    return fetch(`http://localhost:8088/shrooms?_expand=shroomToxicity`)
+        .then(res => res.json())
+}
+// EditRecipe Line 51
+export const getRecipeMushrooms = (recipeId) => {
+    return fetch(`http://localhost:8088/recipeShrooms?recipeId=${recipeId}&_expand=shroom`)
+        .then(res => res.json())
+}
+export const getSpecificRecipeMushrooms = (shroomId) => {
+    return fetch(`http://localhost:8088/recipeShrooms?shroomId=${shroomId}&_expand=recipe&_expand=shroom`)
+        .then(res => res.json())
+}
+

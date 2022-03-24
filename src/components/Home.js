@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
 import { Route } from "react-router-dom/cjs/react-router-dom.min";
 import { getRecipesExpanded } from "./ApiManager";
 import { RecipeCard } from "./recipes/RecipeCard";
@@ -21,12 +22,13 @@ export const Home = () => {
 
     return (
         <>
-            <h2>Hello</h2>
+        <Container>          
             {
                 recipes.map(recipe => {
                     return <RecipeCard recipe={recipe} />
                 })
             }
+        </Container>
         </>
 
     )

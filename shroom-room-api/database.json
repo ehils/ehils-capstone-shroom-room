@@ -23,82 +23,109 @@
   ],
   "recipes": [
     {
-      "id": 1,
       "userId": 1,
-      "dateSubmitted": "",
+      "dateSubmitted": "March 11, 2022",
       "title": "Lion's Mane Medalions",
       "img": "https://wickedhealthyfood.com/blog/wp-content/uploads/2017/04/Liver-and-onions-1024x819.jpg",
       "description": "Lion's main mushrooms cooked to a crispy brown texture in butter, lightly seasoned with salt and pepper.  Produces a delicate, juicy, and meaty medalion that pairs great with any classic dinner.",
-      "topicId": 1
+      "topicId": 1,
+      "id": 1
     },
     {
       "userId": 1,
-      "dateSubmitted": "3/17/2022, 2:00:55 PM",
-      "title": "Test 1",
+      "dateSubmitted": "3/23/2022, 10:33:11 AM",
+      "title": "test 1",
       "img": "",
       "description": "test 1",
-      "topicId": 2,
-      "id": 5
+      "topicId": 1,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "dateSubmitted": "3/24/2022, 2:20:33 PM",
+      "title": "Test Recipe 2",
+      "img": "",
+      "description": "This is a test",
+      "topicId": 3,
+      "id": 3
     }
   ],
   "ingredients": [
     {
-      "id": 1,
+      "recipeId": 2,
+      "ingredient": "ing 1",
+      "id": 5
+    },
+    {
+      "recipeId": 1,
       "ingredient": "8 ounces lion's mane mushrooms",
-      "recipeId": 1,
-      "amount": "8 ounces"
+      "id": 8
     },
     {
-      "id": 3,
+      "recipeId": 1,
       "ingredient": "salt and pepper to taste",
-      "recipeId": 1,
-      "amount": "to taste"
+      "id": 9
     },
     {
-      "recipeId": 5,
-      "ingredient": "new ing",
-      "id": 16
+      "recipeId": 3,
+      "ingredient": "ing 3",
+      "id": 12
+    },
+    {
+      "recipeId": 3,
+      "ingredient": "in4",
+      "id": 13
     }
   ],
   "steps": [
     {
-      "id": 1,
-      "step": "Slice the mushrooms 1/2 inch thick",
-      "recipeId": 1
-    },
-    {
-      "id": 2,
-      "step": "In a medium skillet, heat butter",
-      "recipeId": 1
-    },
-    {
-      "id": 3,
-      "step": "Add the mushrooms and cook on medium-high heat until browned, about 4 minutes",
-      "recipeId": 1
-    },
-    {
-      "id": 4,
-      "step": "Flip and allow the mushrooms to brown for another 2-4 minutes",
-      "recipeId": 1
-    },
-    {
-      "id": 5,
-      "step": "Stir in the salt and pepper",
-      "recipeId": 1
-    },
-    {
-      "id": 6,
-      "step": "Serve",
-      "recipeId": 1
-    },
-    {
-      "recipeId": 5,
+      "recipeId": 2,
       "step": "step 1",
+      "id": 9
+    },
+    {
+      "recipeId": 2,
+      "step": "step 3",
+      "id": 10
+    },
+    {
+      "recipeId": 1,
+      "step": "Add the mushrooms and cook on medium-high heat until browned, about 4 minutes",
+      "id": 17
+    },
+    {
+      "recipeId": 1,
+      "step": "Slice the mushrooms 1/2 inch thick",
+      "id": 18
+    },
+    {
+      "recipeId": 1,
+      "step": "Flip and allow the mushrooms to brown for another 2-4 minutes",
+      "id": 19
+    },
+    {
+      "recipeId": 1,
+      "step": "In a medium skillet, heat butter",
+      "id": 20
+    },
+    {
+      "recipeId": 1,
+      "step": "Stir in the salt and pepper",
+      "id": 21
+    },
+    {
+      "recipeId": 1,
+      "step": "Serve",
+      "id": 22
+    },
+    {
+      "recipeId": 3,
+      "step": "step two",
       "id": 25
     },
     {
-      "recipeId": 5,
-      "step": "new step",
+      "recipeId": 3,
+      "step": "step 3",
       "id": 26
     }
   ],
@@ -114,6 +141,452 @@
     {
       "id": 3,
       "type": "medicinal"
+    }
+  ],
+  "shroomToxicities": [
+    {
+      "id": 1,
+      "type": "edible",
+      "img": ""
+    },
+    {
+      "id": 2,
+      "type": "medicinal",
+      "img": ""
+    },
+    {
+      "id": 3,
+      "type": "toxic but not fatal",
+      "img": ""
+    },
+    {
+      "id": 4,
+      "type": "fatal",
+      "img": ""
+    }
+  ],
+  "recipeShrooms": [
+    {
+      "recipeId": 2,
+      "shroomId": 5,
+      "id": 4
+    },
+    {
+      "recipeId": 2,
+      "shroomId": 18,
+      "id": 5
+    },
+    {
+      "recipeId": 1,
+      "shroomId": 11,
+      "id": 7
+    },
+    {
+      "recipeId": 3,
+      "shroomId": 14,
+      "id": 9
+    }
+  ],
+  "shrooms": [
+    {
+      "id": 11,
+      "name": "Lion's Mane",
+      "description": "Hericium erinaceus (also called lion's mane mushroom, monkey head mushroom, bearded tooth mushroom, satyr's beard, bearded hedgehog mushroom, pom pom mushroom, or bearded tooth fungus) is an edible and medicinal mushroom belonging to the tooth fungus group. Native to North America, Europe and Asia it can be identified by its long spines (greater than 1 cm length), its appearance on hardwoods and its tendency to grow a single clump of dangling spines. Hericium erinaceus can be mistaken for other species of Hericium, which are all popular edibles that grow across the same range. In the wild, these mushrooms are common during late summer and fall on hardwoods, particularly American beech.",
+      "scientific_name": "Hericium erinaceus",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Hericium_erinaceus",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "hedgehog, hedgehog",
+      "alsoKnownAs": "Old Man's Beard, Santa's Beard, Satyr's BEard, Bear's Head, Deer's Tail, Pom-Pom, Heddgehog",
+      "feasting": "The texture is comparable to blue crab claw meat or a piece of chicken.  It's naturally occuring monosodium glutamate (MSG) naturally amplifies the other flavors in the dish.  Best to squeeze out the excess moisture and then dry saute hand shredded portions.  That, or braise in liquid.  Shredding the flesh by hand gives it the look of crabmeat.  The technique many foragers prefer is  to hand-shred it and use it as a replacement fro crab in your favorite crab cake recipe.  form it into patties, fry it in butter, and dip it in remoulade sauce.",
+      "preserving": "Cooking and then freezing maintains the texture.  When ready to cook, don't thaw-simply toss frozen bits intp the skillet.",
+      "farming": "Grows easily indoors on bags of wood chips or sawdust.  On live trees they can only fruit from openings in the bark.  On trees with high-fruiting, tough-to-reach Lion's Mane on your own land, it may be worthwhile to drill a few holes through the bark at chest height to see if they'll fruit at a more accessible level.",
+      "shroomToxicityId": 1,
+      "img": "https://www.centerforcognitivehealth.com/wp-content/uploads/2021/05/featured-lions-mane-1920x1200px-1-1024x640.jpg"
+    },
+    {
+      "id": 1,
+      "name": "Portobello",
+      "description": "Agaricus bisporus is an edible basidiomycete mushroom native to grasslands in Europe and North America. It has two color states while immature—white and brown—both of which have various names. This mushroom is commonly sold under the name portobello mushroom (also portabella or portobella) but the etymology is disputed. When immature and white, this mushroom may be known as common mushroom, white mushroom, button mushroom, cultivated mushroom, table mushroom, and champignon mushroom. When immature and brown, it may be known variously as Swiss brown mushroom, Roman brown mushroom, Italian brown mushroom, cremini/crimini mushroom, or chestnut mushroom.",
+      "scientific_name": "Agaricus bisporus",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Agaricus_bisporus",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 2,
+      "name": "Oyster",
+      "description": "Pleurotus is a genus of gilled mushrooms which includes one of the most widely eaten mushrooms, P. ostreatus. Species of Pleurotus may be called oyster, abalone, or tree mushrooms, and are some of the most commonly cultivated edible mushrooms in the world.[1] Pleurotus fungi have been used in mycoremediation of pollutants such as petroleum and polycyclic aromatic hydrocarbons.",
+      "scientific_name": "Pleurotus",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Pleurotus",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 3,
+      "name": "Shiitake",
+      "description": "The shiitake is an edible mushroom native to East Asia, which is cultivated and consumed in many Asian countries. It is considered a medicinal mushroom in some forms of traditional medicine.",
+      "scientific_name": "Lentinula edodes",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Shiitake",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 4,
+      "name": "Jelly Ear",
+      "description": "Auricularia auricula-judae, known as the Jew's ear, (black) wood ear, jelly ear or by a number of other common names, is a species of edible Auriculariales fungus found worldwide. The fruiting body is distinguished by its noticeably ear-like shape and brown colouration; it grows upon wood, especially elder. Its specific epithet is derived from the belief that Judas Iscariot hanged himself from an elder tree; the Latin Judae was mistranslated into English as 'Jew's', leading to the term Jew's ear, while today jelly ear and other names are sometimes used. The fungus can be found throughout the year in temperate regions worldwide, where it grows upon both dead and living wood.",
+      "scientific_name": "Auricularia auricula-judae",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Auricularia_auricula-judae",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 5,
+      "name": "Straw",
+      "description": "Volvariella volvacea (also known as paddy straw mushroom or straw mushroom) is a species of edible mushroom cultivated throughout East and Southeast Asia and used extensively in Asian cuisines. They are often available fresh in Asia, but are more frequently found in canned or dried forms outside their nations of cultivation. Worldwide, straw mushrooms rank third in consumption, although their use in the West is somewhat uncommon and usually confined to use in Oriental cooking.",
+      "scientific_name": "Volvariella volvacea",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Volvariella_volvaceae",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 6,
+      "name": "Enokitake",
+      "description": "Enoki is a mushroom that is well-known for its role in Japanese cuisine, where it is also known as Enokitake. Commercially-farmed enoki is a long, thin white mushroom and is a popular ingredient for soups, especially in East Asian cuisine, but can be used for salads and other dishes. The mushroom has a crisp texture and can be refrigerated for approximately one week. The farmed form is also known as golden needle mushroom, futu mushroom or lily mushroom. The farmed F. velutipes is sold both fresh and canned. The wild forms differ in color, texture, and sliminess and may be called futu, seafood mushrooms, winter mushrooms or winter fungus, velvet foot, velvet stem or velvet shank.When picking it in the wild, it is important not to confuse it with the poisonous Galerina marginata. Flammulina velutipes can be distinguished by its shiny and sticky caps, white spores, and the absence of a ring on the stem. Galerina marginata presents brown caps and stipe and most notably has brown, rusty spores. It also tends to grow isolated and it presents a ring.",
+      "scientific_name": "Flammulina velutipes",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Enokitake",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 7,
+      "name": "White Jelly",
+      "description": "Tremella fuciformis is a species of fungus; it produces white, frond-like, gelatinous basidiocarps (fruiting bodies). It is widespread, especially in the tropics, where it can be found on the dead branches of broadleaf trees. This fungus is commercially cultivated and is one of the most popular fungi in the cuisine and medicine of China. Tremella fuciformis is commonly known as snow fungus, snow ear, silver ear fungus, and white jelly mushroom. Tremella fuciformis is a parasitic yeast, and grows as a slimy, mucous-like film until it encounters its preferred hosts, various species of Annulohypoxylon (or possibly Hypoxylon) fungi, whereupon it then invades, triggering the aggressive mycelial growth required to form the fruiting bodies.",
+      "scientific_name": "Tremella fuciformis",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Tremella_fuciformis",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 8,
+      "name": "Buna shimeji",
+      "description": "Buna shimeji is an edible mushroom native to East Asia. It is cultivated locally in temperate climates in Europe, North America and Australia and sold fresh in super markets. In nature, shimeji are gilled mushrooms that grow on wood. Most often the mushroom is found on beech trees, hence the common name, Beech Mushroom. They are often small and thin in appearance and popular in many nations across the world.",
+      "scientific_name": "Hypsizygus tessellatus",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Hypsizygus_tessellatus",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 9,
+      "name": "King Stropharia",
+      "description": "Stropharia rugosoannulata, commonly known as the wine cap stropharia, garden giant, burgundy mushroom or king stropharia (Japanese: saketsubatake), is an agaric of the family Strophariaceae found in Europe and North America, and introduced to Australia and New Zealand. The mushroom was reported in April 2018 in Colombia, in the city of Bogota. Unlike many other members of the genus Stropharia, it is widely regarded as a choice edible and is commercially cultivated.",
+      "scientific_name": "Stropharia rugosoannulata",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Stropharia_rugosoannulata",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 10,
+      "name": "Chestnut",
+      "description": "Cyclocybe aegerita, also called Agrocybe cylindracea, Agrocybe aegerita or Pholiota aegerita, is a mushroom in the genus Cyclocybe which is commonly known as the poplar mushroom, chestnut mushroom, or velvet pioppini. In Japan, it is called Yanagi-matsutake.",
+      "scientific_name": "Cyclocybe aegerita",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Cyclocybe_aegerita",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 12,
+      "name": "Porcini",
+      "description": "Boletus edulis is a basidiomycete fungus, and the type species of the genus Boletus. Widely distributed in the Northern Hemisphere across Europe, Asia, and North America, it does not occur naturally in the Southern Hemisphere, although it has been introduced to southern Africa, Australia, New Zealand, and Brazil. Several closely related European mushrooms formerly thought to be varieties or forms of B. edulis have been shown using molecular phylogenetic analysis to be distinct species, and others previously classed as separate species are conspecific with this species. The western North American species commonly known as the California king bolete (Boletus edulis var. grandedulis) is a large, darker-coloured variant first formally identified in 2007.",
+      "scientific_name": "Boletus edulis",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Boletus_edulis",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 13,
+      "name": "Puffball",
+      "description": "Calbovista is a fungal genus containing the single species Calbovista subsculpta, commonly known as the sculptured puffball, sculptured giant puffball, and warted giant puffball. It is a common puffball of the Rocky Mountains and Pacific Coast ranges of western North America. The puffball is more or less round with a diameter of up to 15 cm (6 in), white becoming brownish in age, and covered with shallow pyramid-shaped plates or scales. It fruits singly or in groups along roads and in open woods at high elevations, from summer to autumn.",
+      "scientific_name": "Calbovista",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Calbovista",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 14,
+      "name": "Giant Puffball",
+      "description": "Calvatia gigantea, commonly known as the giant puffball, is a puffball mushroom commonly found in meadows, fields, and deciduous forests usually in late summer and autumn. It is found in temperate areas throughout the world.",
+      "scientific_name": "Calvatia gigantea",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Calvatia_gigantea",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 15,
+      "name": "Chanterelle",
+      "description": "Cantharellus cibarius is a species of golden chanterelle mushroom in the genus Cantharellus. It is also known as girolle. It is native to Europe, growing mainly in deciduous and coniferous forests.[4][5] Due to its characteristic features, it is practically impossible to mix it up with toxic mushrooms. This has resulted in making chanterelles the most popular mushrooms to eat. The season for picking it usually occurs between July and October. It is possible to use the mushroom in a variety of dishes. The mushroom can be preserved by either drying it or freezing it. An oven should not be used when drying it because can result in the mushroom becoming bitter.",
+      "scientific_name": "Cantharellus cibarius",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Cantharellus_cibarius",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 16,
+      "name": "Funnel Chanterelle",
+      "description": "Craterellus tubaeformis (formerly Cantharellus tubaeformis) is an edible fungus, also known as Yellowfoot, winter mushroom, or Funnel Chanterelle. It is mycorrhizal, forming symbiotic associations with plants, making it very challenging to cultivate. It is smaller than the golden chanterelle (Cantharellus cibarius) and has a dark brown cap with paler gills and a hollow yellow stem. C. tubaeformis tastes stronger but less fruity than the golden chanterelle. It has a very distinctive smokey, peppery taste when raw. It grows in temperate and cold parts of Northern America and Europe, including Scandinavia, Finland, Russia, and the British Isles, as well as in the Himalayas in Asia, including Assam,[1][unreliable source?] in the central parts of the Indian Subcontinent, and in Thailand.",
+      "scientific_name": "Craterellus tubaeformis",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Craterellus_tubaeformis",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 17,
+      "name": "Wood Blewit",
+      "description": "Clitocybe nuda, commonly known as the wood blewit and alternately described as Lepista nuda, is an edible mushroom native to Europe and North America. Described by Pierre Bulliard in 1790, it was also known as Tricholoma nudum for many years. It is found in both coniferous and deciduous woodlands. It is a fairly distinctive mushroom that is widely eaten, though there is some caution about edibility. Nevertheless, it has been cultivated in Britain, the Netherlands and France.",
+      "scientific_name": "Clitocybe nuda",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Clitocybe_nuda",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 18,
+      "name": "Gypsy",
+      "description": "Cortinarius caperatus, commonly known as the gypsy mushroom, is an edible mushroom of the genus Cortinarius found in northern regions of Europe and North America. It was known as Rozites caperata for many years before genetic studies revealed that it belonged to the genus Cortinarius. The fruit bodies appear in autumn in coniferous and beech woods as well as heathlands in late summer and autumn. The ochre-coloured cap is up to 10 cm (4 in) across and has a fibrous surface. The clay-colored gills are attached to the stipe under the cap, and the stipe is whitish with a whitish ring. The flesh has a mild smell and flavor.",
+      "scientific_name": "Cortinarius caperatus",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Cortinarius_caperatus",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 19,
+      "name": "Black Chanterelle",
+      "description": "Craterellus cornucopioides, or horn of plenty, is an edible mushroom. It is also known as the black chanterelle, black trumpet, trompette de la mort (French), trombetta dei morti (Italian) or trumpet of the dead. The Cornucopia, in Greek mythology, referred to the magnificent horn of the nymph Amalthea's goat (or of herself in goat form), that filled itself with whatever meat or drink its owner requested. It has become the symbol of plenty. A possible origin for the name trumpet of the dead is that the growing mushrooms were seen as being played as trumpets by dead people under the ground.",
+      "scientific_name": "Craterellus cornucopioides",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Craterellus_cornucopioides",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 20,
+      "name": "Hen-of-the-Woods",
+      "description": "Grifola frondosa is a polypore mushroom that grows in clusters at the base of trees, particularly oaks. The mushroom is commonly known among English speakers as hen-of-the-woods, ram's head and sheep's head. It is typically found in late summer to early autumn. In the United States' supplement market, as well as in Asian grocery stores, the mushroom is known by its Japanese name maitake. Throughout Italian American communities in the northeastern United States, it is commonly known as the signorina mushroom. G. frondosa should not be confused with Laetiporus sulphureus, another edible bracket fungus that is commonly called chicken of the woods or sulphur shelf. It is native to China, the northeastern part of Japan and North America.",
+      "scientific_name": "Grifola frondosa",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Grifola_frondosa",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 22,
+      "name": "Sweet Tooth",
+      "description": "Hydnum repandum, commonly known as the sweet tooth, wood hedgehog or hedgehog mushroom, is a basidiomycete fungus of the family Hydnaceae. First described by Carl Linnaeus in 1753, it is the type species of the genus Hydnum. The fungus produces fruit bodies (mushrooms) that are characterized by their spore-bearing structures—in the form of spines rather than gills—which hang down from the underside of the cap. The cap is dry, colored yellow to light orange to brown, and often develops an irregular shape, especially when it has grown closely crowded with adjacent fruit bodies. The mushroom tissue is white with a pleasant odor and a spicy or bitter taste. All parts of the mushroom stain orange with age or when bruised.",
+      "scientific_name": "Hydnum repandum",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Hydnum_repandum",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "wood hedgehog, hedgehog mushroom",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 23,
+      "name": "Morel",
+      "description": "Morchella, the true morels, is a genus of edible sac fungi closely related to anatomically simpler cup fungi in the order Pezizales (division Ascomycota). These distinctive fungi have a honeycomb appearance due to the network of ridges with pits composing their caps. Morels are prized by gourmet cooks, particularly in French cuisine. Due to difficulties in cultivation, commercial harvesting of wild morels has become a multimillion-dollar industry in the temperate Northern Hemisphere, in particular North America, Turkey, China, the Himalayas, India, and Pakistan, where these highly prized fungi are found in abundance. Typified by Morchella esculenta in 1794, the genus has been the source of considerable taxonomical controversy throughout the years, mostly with regard to the number of species involved, with some mycologists recognising as few as three species and others over thirty. Current molecular phylogenetics suggest there might be over seventy species of Morchella worldwide, most of them exhibiting high continental endemism and provincialism.",
+      "scientific_name": "Morchella",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Morchella",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 24,
+      "name": "Oyster",
+      "description": "Pleurotus ostreatus, the pearl oyster mushroom or tree oyster mushroom, is a common edible mushroom. It was first cultivated in Germany as a subsistence measure during World War I[2] and is now grown commercially around the world for food. It is related to the similarly cultivated king oyster mushroom. Oyster mushrooms can also be used industrially for mycoremediation purposes. The oyster mushroom is one of the more commonly sought wild mushrooms, though it can also be cultivated on straw and other media. It has the bittersweet aroma of benzaldehyde (which is also characteristic of bitter almonds).",
+      "scientific_name": "Pleurotus ostreatus",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Edible_mushroom",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 25,
+      "name": "Matsutake",
+      "description": "Matsutake is the common name for a highly sought mycorrhizal mushroom that grows in Asia, Europe, and North America. It is prized in Japanese, Korean, and Chinese cuisine for its distinct spicy-aromatic odor.",
+      "scientific_name": "Tricholoma matsutake",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Matsutake",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
+    },
+    {
+      "id": 26,
+      "name": "Tuber",
+      "description": "Tuber is a genus in the Tuberaceae family of fungi. It includes several species of truffles that are highly valued as delicacies. According to a standard reference text, the widespread genus contains 86 species.",
+      "scientific_name": "Tuberaceae",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Tuber_(fungus)",
+      "commercially_harvested": true,
+      "commercially_cultivated": true,
+      "meaning": "",
+      "alsoKnownAs": "",
+      "feasting": "",
+      "preserving": "",
+      "farming": "",
+      "shroomToxicityId": 1,
+      "img": ""
     }
   ]
 }

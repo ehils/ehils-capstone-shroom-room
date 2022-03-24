@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card'
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { getRecipesExpanded, getUserRecipes } from "../ApiManager";
-import { Button } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import { SelectedRecipeShrooms } from "../recipes/RecipeShrooms";
+import "./users.css"
 // This page will display the users recipes as cards,
 // with the option to edit or delete existing recipes
 
@@ -42,10 +44,10 @@ export const MyRecipes = () => {
 
 
     return (
-        <>
+        <><Container fluid="sm">
             {
                 recipes.map((recipe) => {
-                    return <Card key={`recipe--${recipe.id}`} className="recipe_card" id={recipe.id} style={{ width: '18rem' }}>
+                    return <Card key={`recipe--${recipe.id}`} className="recipe_card" id={recipe.id} >
                         <Card.Img variant="top" src={recipe.img} />
                         <Card.Body>
                             {/* links to recipe details page */}
@@ -53,28 +55,28 @@ export const MyRecipes = () => {
                             <Link to={`/recipes/${recipe.id}`}>
                                 <h2>{recipe.title}</h2>
                             </Link>
-                            <Card.Text>
-                                {recipe.description}
-                            </Card.Text>
                             <Card.Subtitle>Submission Date:</Card.Subtitle>
                             <Card.Text>{recipe.dateSubmitted}</Card.Text>
                             <Card.Subtitle>Topic:</Card.Subtitle>
                             <Card.Text>{recipe.topic.type}</Card.Text>
-                        </Card.Body>
-                        <Button variant="primary" 
+                            <SelectedRecipeShrooms recipeId = {recipe.id}/><br></br>
+                            
+                        <Button className="editButton" variant="primary" 
                         onClick={()=> {
                             history.push(`/editrecipe/${recipe.id}`)
                         }}
                         >Edit</Button>
-                        <Button variant="primary" onClick={() => {
+                        <Button className="editButton" variant="primary" onClick={() => {
                             deleteRecipe(recipe.id)
                         }}>
                             Delete</Button>
+                        </Card.Body>
                     </Card>
                 }
 
                 )
             }
+            </Container>
         </>
     )
 }

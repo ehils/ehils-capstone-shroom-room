@@ -1,13 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { ApplicationViews } from './ApplicationViews'
 import { NavBar } from './nav/NavBar'
 import { Login } from './auth/Login'
-import { Register } from './auth/Register'
+import { Register } from './auth/Register';
+import { getUsers } from './ApiManager';
+import "react-bootstrap-typeahead/css/Typeahead.css";
+// import "react-bootstrap-navdropdown/css/NavDropdown.css"
+
 
 
 export const ShroomRoom = () => {
-    return (
+  const [users, setUsers] =useState([]) 
+  
+  useEffect(() => {
+    getUsers()
+    .then((data) => {
+      setUsers(data)
+    })
+},[])
+  
+  return (
         <>
     <Route
       render={() => {
@@ -15,7 +28,10 @@ export const ShroomRoom = () => {
           return (
             <>
               <NavBar />
-              <h1>Shroom Room</h1>
+            {users.map(user => {
+              if (user.id === parseInt(localStorage.getItem("shroom_room_user")))
+              return <h1>Hello {user.name}!</h1>
+            })}
               <ApplicationViews />
             </>
           );

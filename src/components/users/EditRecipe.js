@@ -4,33 +4,63 @@
 // const [recipe, editRecipe]
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { getRecipeDetail, getRecipeIngredients, getRecipeSteps, getTopics } from "../ApiManager";
+import { getRecipeDetail, getRecipeIngredients, getRecipeSteps, getTopics, getMushrooms, getRecipeMushrooms } from "../ApiManager";
+import { Typeahead } from "react-bootstrap-typeahead";
+import "react-bootstrap-typeahead/css/Typeahead.css"
+import { Button, Container } from "react-bootstrap";
 // this module will be create the form to add recipes
 // 
 // 
 // define a function that renders the html for the add recipe page
 export const EditRecipe = () => {
     // define state for the recipe object
-    const {recipeId} = useParams()
+    const { recipeId } = useParams()
     const [recipe, updateRecipe] = useState({
         title: "",
         description: "",
         topicId: 1
     })
     // initialize state for steps
-    
+
     const [currentStep, setCurrentStep] = useState("")
     const [stepsArray, setStepArray] = useState([])
     const [currentIngredient, setCurrentIngredient] = useState("")
     const [ingredientsArray, setIngredientArray] = useState([])
     const [constStepsArray, setConstStepsArray] = useState([])
     const [constIngredientsArray, setConstIngredientsArray] = useState([])
+    const [multiShrooms, setMultiShrooms] = useState([]);
+    const [constMultiShroomsArray, setConstMultiShrooms] = useState([])
+    const [shrooms, setShrooms] = useState([])
+    const [topics, setTopics] = useState([])
+    const [currentRecipeShrooms, setRecipeShrooms] = useState([])
 
 
     // intialize topic state
-    const [topics, setTopics] = useState([])
 
     const history = useHistory()
+
+    useEffect(
+        () => {
+            getMushrooms()
+                .then((data) =>
+                    setShrooms(data)
+                )
+        },
+        []
+    )
+    useEffect(
+        () => {
+            getRecipeMushrooms(recipeId)
+                .then((data) =>
+                    setRecipeShrooms(data)
+
+                )
+        },
+        []
+    )
+    // getrecipeshrooms,
+    // for each recipeshroom, if shroomId matches Id of shrooms, push shrooms into array
+    // set multipleselections equal to new shroom array
 
     useEffect(
         () => {
@@ -58,7 +88,6 @@ export const EditRecipe = () => {
                 })
         }, []
     )
-    console.log(stepsArray)
     useEffect(
         () => {
             getRecipeIngredients(recipeId)
@@ -69,6 +98,38 @@ export const EditRecipe = () => {
                 })
         }, []
     )
+    useEffect(() => {
+        const shroomArray = currentRecipeShrooms.map(recipeShroom => {
+            return recipeShroom.shroom
+        })
+        let copy = [...shroomArray]
+        setConstMultiShrooms(copy)
+        setMultiShrooms(shroomArray)
+    },[currentRecipeShrooms])
+
+    // const currentShroomSelectionFilter = () => {
+    //     //   create empty array 
+    //     let shroomArray = []
+    //     // iterate through recipeMushrooms
+    //     currentRecipeShrooms.forEach(currentShroom => {
+    //         for (const shroom of shrooms) {
+    //             // see if recipeShroom.shroom.id === shroom.id
+    //             if (currentShroom.shroom.id === shroom.id) {
+    //                 // push shroom match into empty array
+    //                 shroomArray.push(shroom)
+    //             }
+    //         }
+    //         return shroomArray
+    //     }
+    //     )
+    //     // set empty array equal multishroom array via multishroom function
+    // }
+    // const shroomArrayObj = currentShroomSelectionFilter()
+    // console.log(shroomArrayObj)
+
+
+
+
     // define state for recipe ingredients
     // define state for the recipe steps
     // define a function that listens to event to save recipe info to json database   
@@ -94,7 +155,9 @@ export const EditRecipe = () => {
         return fetch(`http://localhost:8088/recipes/${recipeId}`, fetchOption)
             .then((res) => res.json())
             .then((res) => {
-                debugger
+
+
+
                 constStepsArray.forEach(step => {
                     return fetch(`http://localhost:8088/steps/${step.id}`, {
                         method: "DELETE"
@@ -116,7 +179,7 @@ export const EditRecipe = () => {
                         },
                         body: JSON.stringify(newStep)
                     }
-            
+
                     return fetch("http://localhost:8088/steps", fetchOption)
 
                 })
@@ -125,7 +188,7 @@ export const EditRecipe = () => {
                         method: "DELETE"
                     })
                 })
-                
+
                 ingredientsArray.forEach((currentIngredient) => {
                     const recId = parseInt(recipeId)
                     const ingredient = currentIngredient.ingredient
@@ -142,11 +205,39 @@ export const EditRecipe = () => {
                         },
                         body: JSON.stringify(newIngredient)
                     }
-            
+
                     return fetch("http://localhost:8088/ingredients", fetchOption)
 
                 })
-                
+                currentRecipeShrooms.forEach((shroom) => {
+                    return fetch(`http://localhost:8088/recipeShrooms/${shroom.id}`, {
+                        method: "DELETE"
+                    })
+                })
+
+                multiShrooms.forEach((currentShroom) => {
+                    const recipeId = res.id
+                    const shroom = currentShroom.id
+
+                    const newRecipeShroom = {
+                        recipeId: recipeId,
+                        shroomId: shroom
+                    }
+
+                    const fetchOption = {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(newRecipeShroom)
+                    }
+
+                    return fetch("http://localhost:8088/recipeShrooms", fetchOption)
+
+                })
+
+            
+
             })
             .then(() => {
                 history.push(`/myrecipes/${parseInt(localStorage.getItem("shroom_room_user"))}`)
@@ -157,7 +248,7 @@ export const EditRecipe = () => {
     const addStep = (e, currentStep) => {
         e.preventDefault()
         const copy = [...stepsArray]
-        copy.push({step: currentStep})
+        copy.push({ step: currentStep })
         setStepArray(copy)
     }
     const deleteStep = (stepIdObj) => {
@@ -170,7 +261,7 @@ export const EditRecipe = () => {
     const addIngredient = (e, currentIngredient) => {
         e.preventDefault()
         const copy = [...ingredientsArray]
-        copy.push({ingredient: currentIngredient})
+        copy.push({ ingredient: currentIngredient })
         setIngredientArray(copy)
         setCurrentIngredient("")
     }
@@ -203,6 +294,7 @@ export const EditRecipe = () => {
     // return the jsx for form
     return (
         <>
+        <Container>
             <form className="recipeForm">
                 <h2 className="recipeForm__title">Add Your Recipe</h2>
                 <fieldset>
@@ -250,11 +342,11 @@ export const EditRecipe = () => {
                             <ul>
                                 {
                                     ingredientsArray.map((ingredient) => {
-                                        return <li key={`ingredient--${ingredient.ingredient}`}>{ingredient.ingredient}<button id={ingredientsArray.indexOf(ingredient)} onClick={
+                                        return <li key={`ingredient--${ingredient.ingredient}`}>{ingredient.ingredient}<Button id={ingredientsArray.indexOf(ingredient)} onClick={
                                             (e) => {
                                                 deleteIngredient(e.target.id)
                                             }
-                                        }>Delete Ingredient</button></li>
+                                        }>Delete Ingredient</Button></li>
                                     })
                                 }
                             </ul>
@@ -273,9 +365,9 @@ export const EditRecipe = () => {
                             name="ingredients"
                             className="form-control"
                             placeholder="enter ingredient here"
-                        /><button onClick={
+                        /><Button onClick={
                             (e) => addIngredient(e, currentIngredient)
-                            }>Add ingredients</button>
+                        }>Add ingredients</Button>
                     </div>
                 </fieldset>
                 <fieldset>
@@ -285,13 +377,13 @@ export const EditRecipe = () => {
                             <ul>
                                 {
                                     stepsArray.map((step) => {
-                                        
-                                        return <li key={`step--${step.step}`}>{step.step}<button id={stepsArray.indexOf(step)}
+
+                                        return <li key={`step--${step.step}`}>{step.step}<Button id={stepsArray.indexOf(step)}
                                             onClick={
                                                 (e) => {
                                                     deleteStep(e.target.id)
                                                 }
-                                            }>Delete Step</button></li>
+                                            }>Delete Step</Button></li>
                                     })
                                 }
                             </ul>
@@ -302,7 +394,7 @@ export const EditRecipe = () => {
                                     let copy = { ...currentStep }
                                     copy = e.target.value
                                     setCurrentStep(copy)
-                                    
+
                                 }
                             }
                             required autoFocus
@@ -310,7 +402,7 @@ export const EditRecipe = () => {
                             name="steps"
                             className="form-control"
                             placeholder="enter step here"
-                        /><button onClick={(e) => addStep(e,currentStep)}>Add Step</button>
+                        /><Button onClick={(e) => addStep(e, currentStep)}>Add Step</Button>
                     </div>
                 </fieldset>
                 <fieldset>
@@ -318,7 +410,7 @@ export const EditRecipe = () => {
                         <label htmlFor="recipe__topic">Shroom Topic:</label>
                         <select value={recipe.topicId}
                             defaultValue={"0"}
-                            
+
                             onChange={(e) => {
                                 const copy = { ...recipe }
                                 copy.topicId = parseInt(e.target.value)
@@ -334,6 +426,17 @@ export const EditRecipe = () => {
 
                         </select>
                     </div>
+                </fieldset>
+                <fieldset>
+                    <Typeahead
+                        id="basic-typeahead-multiple"
+                        labelKey="name"
+                        multiple
+                        onChange={setMultiShrooms}
+                        options={shrooms}
+                        placeholder="Choose related mushrooms"
+                        selected={multiShrooms}
+                    />
                 </fieldset>
                 <fieldset>
                     <div className="form-group">
@@ -354,10 +457,12 @@ export const EditRecipe = () => {
                         />
                     </div>
                 </fieldset>
-                <button className="btn btn-primary" onClick={saveRecipe}>
+                <Button className="btn btn-primary" onClick={saveRecipe}>
                     Submit Recipe
-                </button>
+                </Button>
             </form>
+            </Container>
         </>
+        
     )
 }

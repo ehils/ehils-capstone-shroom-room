@@ -1,10 +1,28 @@
+@import url("../../index.css");
+
 .navbar {
+    
     display: flex;
     flex-wrap: nowrap;
     justify-content: left;
+    
 }
 
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
 }
+
+.logo {
+    font-family: 'Righteous', cursive;
+}
+.dropdown_item {
+    color: black !important;
+}
+/* .navbar_dropdown_item 
+    font: black;
+} */
+
+/* .bg-navBarColor {
+    background-color: blanchedalmond;
+} */

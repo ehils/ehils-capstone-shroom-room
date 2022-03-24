@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card'
+import { SelectedRecipeShrooms } from "./RecipeShrooms";
 
 
 // Create a card to display recipe photos, titles, and description
@@ -17,13 +18,13 @@ export const RecipeCard = ({ recipe }) => {
 
     return (
         <>
-            <Card className="recipe_card" id={recipe.id} style={{ width: '18rem' }}>
+            <Card className="recipe_card" id={recipe.id}>
+                <Card.Header as="h2">
+                        {recipe.title}</Card.Header>
                 <Card.Img variant="top" src={recipe.img} />
                 <Card.Body>
                     {/* links to recipe details page */}
-                    <Link to={`/recipes/${recipe.id}`} >
-                        <h2>{recipe.title}</h2>
-                    </Link>
+                    
                     <Card.Text>
                         {recipe.description}
                     </Card.Text>
@@ -33,6 +34,11 @@ export const RecipeCard = ({ recipe }) => {
                     <Card.Text>{recipe.dateSubmitted}</Card.Text>
                     <Card.Subtitle>Topic:</Card.Subtitle>
                     <Card.Text>{recipe.topic.type}</Card.Text>
+                    <Card.Subtitle>Recipe Includes:</Card.Subtitle>
+                    <SelectedRecipeShrooms recipeId = {recipe.id}/><br></br>
+                    <Link to={`/recipes/${recipe.id}`} > {"         "}
+                        Check Out Recipe
+                    </Link>
                 </Card.Body>
             </Card>
         </>

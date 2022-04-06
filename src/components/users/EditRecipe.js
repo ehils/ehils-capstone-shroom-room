@@ -8,6 +8,7 @@ import { getRecipeDetail, getRecipeIngredients, getRecipeSteps, getTopics, getMu
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css"
 import { Button, Container } from "react-bootstrap";
+import "./EditRecipe.css"
 // this module will be create the form to add recipes
 // 
 // 
@@ -250,6 +251,7 @@ export const EditRecipe = () => {
         const copy = [...stepsArray]
         copy.push({ step: currentStep })
         setStepArray(copy)
+        setCurrentStep("")
     }
     const deleteStep = (stepIdObj) => {
 
@@ -342,11 +344,11 @@ export const EditRecipe = () => {
                             <ul>
                                 {
                                     ingredientsArray.map((ingredient) => {
-                                        return <li key={`ingredient--${ingredient.ingredient}`}>{ingredient.ingredient}<Button id={ingredientsArray.indexOf(ingredient)} onClick={
+                                        return <li key={`ingredient--${ingredient.ingredient}`}>{ingredient.ingredient}<Button variant="danger" id={ingredientsArray.indexOf(ingredient)} onClick={
                                             (e) => {
                                                 deleteIngredient(e.target.id)
                                             }
-                                        }>Delete Ingredient</Button></li>
+                                        }><img src="../../x.png" width={10}/></Button></li>
                                     })
                                 }
                             </ul>
@@ -365,7 +367,7 @@ export const EditRecipe = () => {
                             name="ingredients"
                             className="form-control"
                             placeholder="enter ingredient here"
-                        /><Button onClick={
+                        /><Button variant="flat" onClick={
                             (e) => addIngredient(e, currentIngredient)
                         }>Add ingredients</Button>
                     </div>
@@ -374,19 +376,19 @@ export const EditRecipe = () => {
                     <div className="form-group">
                         <label htmlFor="steps">Recipe Steps:</label>
                         <div>
-                            <ul>
+                            <ol>
                                 {
                                     stepsArray.map((step) => {
 
-                                        return <li key={`step--${step.step}`}>{step.step}<Button id={stepsArray.indexOf(step)}
+                                        return <li key={`step--${step.step}`}>{step.step}<Button variant="danger" id={stepsArray.indexOf(step)}
                                             onClick={
                                                 (e) => {
                                                     deleteStep(e.target.id)
                                                 }
-                                            }>Delete Step</Button></li>
+                                            }><img src="../../x.png" width={10}/></Button></li>
                                     })
                                 }
-                            </ul>
+                            </ol>
                         </div>
                         <input
                             onChange={
@@ -398,11 +400,12 @@ export const EditRecipe = () => {
                                 }
                             }
                             required autoFocus
+                            value={currentStep}
                             type="text"
                             name="steps"
                             className="form-control"
                             placeholder="enter step here"
-                        /><Button onClick={(e) => addStep(e, currentStep)}>Add Step</Button>
+                        /><Button variant="flat" onClick={(e) => addStep(e, currentStep)}>Add Step</Button>
                     </div>
                 </fieldset>
                 <fieldset>
@@ -457,7 +460,7 @@ export const EditRecipe = () => {
                         />
                     </div>
                 </fieldset>
-                <Button className="btn btn-primary" onClick={saveRecipe}>
+                <Button variant="flat" className="btn btn-primary" onClick={saveRecipe}>
                     Submit Recipe
                 </Button>
             </form>

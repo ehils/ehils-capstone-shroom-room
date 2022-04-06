@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card'
 import { SelectedRecipeShrooms } from "./RecipeShrooms";
-
+import { getRecipeComments } from "../ApiManager";
+import ReactStars from "react-rating-stars-component";
+import { RecipeRating } from "./RecipeRating";
+import "./RecipeCard.css"
 
 // Create a card to display recipe photos, titles, and description
 // the card will be used on the home screen and in the myrecipes page
@@ -15,27 +18,29 @@ import { SelectedRecipeShrooms } from "./RecipeShrooms";
 // display user.name
 
 export const RecipeCard = ({ recipe }) => {
-
     return (
         <>
-            <Card className="recipe_card" id={recipe.id}>
+            <Card fluid="sm" key={recipe.id} className="recipe_card" id={recipe.id}>
                 <Card.Header as="h2">
-                        {recipe.title}</Card.Header>
-                <Card.Img variant="top" src={recipe.img} />
+                    {recipe.title}</Card.Header>
+                <Card.Img variant="top" fluid="sm" src={recipe.img} />
                 <Card.Body>
                     {/* links to recipe details page */}
-                    
+
                     <Card.Text>
                         {recipe.description}
                     </Card.Text>
                     <Card.Subtitle>Posted by:</Card.Subtitle>
                     <Card.Text>{recipe.user.name}</Card.Text>
                     <Card.Subtitle>Submission Date:</Card.Subtitle>
-                    <Card.Text>{recipe.dateSubmitted}</Card.Text>
+                    <Card.Text>{recipe.dateSubmitted?.split(",")[0]}</Card.Text>
                     <Card.Subtitle>Topic:</Card.Subtitle>
                     <Card.Text>{recipe.topic.type}</Card.Text>
+                    <Card.Subtitle>Average Rating:</Card.Subtitle>
+                    <RecipeRating recipe={recipe} />                        
+                    
                     <Card.Subtitle>Recipe Includes:</Card.Subtitle>
-                    <SelectedRecipeShrooms recipeId = {recipe.id}/><br></br>
+                    <SelectedRecipeShrooms key={`selectedShroom_${recipe.id}`} recipeId={recipe.id} /><br></br>
                     <Link to={`/recipes/${recipe.id}`} > {"         "}
                         Check Out Recipe
                     </Link>

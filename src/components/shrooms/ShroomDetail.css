@@ -9,3 +9,62 @@
     display: flex;
     justify-content: space-evenly; 
 } */
+.shroom_card.card {
+    margin: 15px;
+    border: solid darkgoldenrod 10px;
+    background-color: cornsilk;
+    max-width: 600px;
+}
+
+img.card-img-top {
+   padding: 20px;
+   
+}
+
+img.figure-img.img-fluid {
+    background-color: darkgoldenrod;
+    padding: 10px;
+    border: 10px;
+    border-color: darkgoldenrod !important;
+    border-radius: 30px;
+}
+
+ .shroom_details.nav.nav-tabs {
+    margin: 15px;
+    border: solid darkgoldenrod 10px;
+    /* background-color: goldenrod;
+    color: whitesmoke !important; */
+    border-radius: 30px;
+}
+.shroom_profile {
+    margin: 15px;
+    
+} 
+
+.nav-item {
+    color: darkred;
+    
+}
+.tab-content {
+    margin: 15px;
+    border: solid darkgoldenrod 10px;
+    /* background-color: goldenrod; */
+    padding:15px;
+    /* color: whitesmoke; */
+    border-radius: 30px;
+}
+button.nav-link.active{
+    border-radius: 5px;
+}
+.card-header {
+    /* color: whitesmoke; */
+}
+.card-subtitle {
+    /* color: whitesmoke; */
+}
+/* button.nav-link {
+    color:brown;
+} */
+.card-text {
+    color: black;
+}

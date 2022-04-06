@@ -7,7 +7,7 @@ import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 export const NavBar = () => {
     return (
         <div className="navBar">
-            <Navbar bg="dark" variant="dark" sticky="top" expand="sm" collapseonselect={"true"}>
+            <Navbar bg="flat" variant="dark" sticky="top" expand="sm" collapseonselect={"true"}>
                 <Navbar.Brand className="logo">
                     <img src="https://www.pngkit.com/png/full/769-7690871_747-x-800-2-red-mushroom.png" width="40px" height="40px" />
                     ShroomRoom

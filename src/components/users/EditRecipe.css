@@ -1,0 +1,26 @@
+
+.recipeForm {
+    margin: 20px;
+    padding: 20px;
+    background-color: goldenrod;
+    border: darkgoldenrod solid 10px;
+    border-radius: 30px;
+}
+.form-group {
+    margin: 10px;
+}
+.form-control {
+    margin-top: 15px;
+}
+button.btn.btn-primary {
+    margin-top: 10px;
+    background-color: darkolivegreen;
+}
+
+button.btn.btn-primary.btn-flat.btn-md {
+    margin-top: 10px;
+    background-color: darkolivegreen;
+}
+button.btn.btn-danger {
+    align-content: right;
+}

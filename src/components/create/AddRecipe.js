@@ -4,6 +4,8 @@ import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { getMushrooms, getTopics } from "../ApiManager";
+import { UploadImages } from "./AddImage";
+import "./AddRecipe.css"
 // this module will be create the form to add recipes
 // 
 // 
@@ -112,7 +114,7 @@ export const AddRecipe = () => {
                     const recipeId = res.id
                     const shroom = currentShroom.id
 
-                    const newRecipeShroom = {
+                    const newRecipeShrooms = {
                         recipeId: recipeId,
                         shroomId: shroom
                     }
@@ -122,7 +124,7 @@ export const AddRecipe = () => {
                         headers: {
                             "Content-Type": "application/json"
                         },
-                        body: JSON.stringify(newRecipeShroom)
+                        body: JSON.stringify(newRecipeShrooms)
                     }
 
                     return fetch("http://localhost:8088/recipeShrooms", fetchOption)
@@ -196,7 +198,8 @@ export const AddRecipe = () => {
     // return the jsx for form
     
     return (
-        <><Container>
+        <>
+        <Container>
             <form className="recipeForm">
                 <h2 className="recipeForm__title">Add Your Recipe</h2>
                 <fieldset>
@@ -243,11 +246,11 @@ export const AddRecipe = () => {
                             <ul>
                                 {
                                     ingredientsArray.map((ingredient) => {
-                                        return <li key={`ingredient__${ingredient++}`}>{ingredient}<Button size="sm" id={ingredientsArray.length} onClick={
+                                        return <li key={`ingredient__${ingredient++}`}>{ingredient}<Button variant="danger" size="sm" id={ingredientsArray.length} onClick={
                                             (e) => {
                                                 deleteIngredient(e.target.id)
                                             }
-                                        }>Delete Ingredient</Button></li>
+                                        }><img src="../../x.png" width={10}/></Button></li>
                                     })
                                 }
                             </ul>
@@ -266,7 +269,7 @@ export const AddRecipe = () => {
                             name="ingredients"
                             className="form-control"
                             placeholder="enter ingredient here"
-                        /><Button size="sm" onClick={
+                        /><Button size="sm" variant="flat" onClick={
                             (e) => addIngredient(e, currentIngredient)
                         }>Add ingredients</Button>
                     </div>
@@ -278,12 +281,12 @@ export const AddRecipe = () => {
                             <ol>
                                 {
                                     stepsArray.map((step) => {
-                                        return <li key={`step__${step++}`}>{step}<Button size="sm" id={stepsArray.length}
+                                        return <li key={`step__${step++}`}>{step}<Button size="sm" variant="danger" id={stepsArray.length}
                                             onClick={
                                                 (e) => {
                                                     deleteStep(e.target.id)
                                                 }
-                                            }>Delete Step</Button></li>
+                                            }><img src="../../x.png" width={10}/></Button></li>
                                     })
                                 }
                             </ol>
@@ -303,7 +306,7 @@ export const AddRecipe = () => {
                             name="steps"
                             className="form-control"
                             placeholder="enter step here"
-                        /><Button size="sm" onClick={(e) => addStep(e, currentStep)}>Add Step</Button>
+                        /><Button variant="flat" size="sm" onClick={(e) => addStep(e, currentStep)}>Add Step</Button>
                     </div>
                 </fieldset>
                 <fieldset>
@@ -342,7 +345,7 @@ export const AddRecipe = () => {
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="recipe_img">Image Link:</label>
-                        <input
+                        {/* <input
                             onChange={
                                 (e) => {
                                     const copy = { ...recipe }
@@ -354,10 +357,11 @@ export const AddRecipe = () => {
                             type="text"
                             className="form-control"
                             placeholder="enter image link here"
-                        />
+                        /> */}
+                        <UploadImages obj={recipe} update={updateRecipe} />
                     </div>
                 </fieldset>
-                <Button className="btn btn-primary" onClick={saveRecipe}>
+                <Button type="submit" variant="flat" className="btn btn-primary" size="md" onClick={saveRecipe}>
                     Submit Recipe
                 </Button>
             </form>

@@ -1,4 +1,4 @@
-
+@import url("../../index.css");
 .carousel_image {
     /* width:00px; */
     height:400px;
@@ -6,5 +6,61 @@
     
   }
 .main {
+    padding: 20px;
     margin: 50px;
+    border: 5px solid darkgoldenrod;
+    background-color: goldenrod;
+    color: whitesmoke;
+    border-radius: 20px;
 }
+.sign_in {
+    font-family: "Righteous", cursive;
+}
+
+.btn.btn-flat {
+    margin: 10px;
+    color: whitesmoke;
+    background-color: darkolivegreen;
+   
+}
+
+.shroom_room_logo  {
+    padding: 20px;
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-evenly;
+    border: 5px solid;
+    border-color: darkgoldenrod;
+    margin: 20px;
+    background-color: goldenrod;
+    border-radius: 20px;
+}
+
+.mushroom_logo .sign_in {
+    background-color: goldenrod;
+}
+.form-login {
+    border: 1px solid black;
+    margin: 20px;
+    color: whitesmoke;
+    
+}
+.container--login {
+    background-color: cornsilk;
+    margin: 0;
+}
+
+.registration_container {
+    border: 5px solid;
+    border-color: darkgoldenrod;
+    margin: 20px;
+    background-color: goldenrod;
+    border-radius: 20px; 
+}
+form {
+    color: whitesmoke;
+}
+
+
+
+/* #6b724e */

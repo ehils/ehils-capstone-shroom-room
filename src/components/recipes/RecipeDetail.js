@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { getRecipeDetail, getRecipeIngredients, getRecipeSteps } from "../ApiManager";
-import { Accordion, Col, Container, Figure, Row } from "react-bootstrap";
+import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { getRecipeComments, getRecipeDetail, getRecipeIngredients, getRecipeSteps } from "../ApiManager";
+import { Accordion, Button, Col, Container, Figure, Row } from "react-bootstrap";
 import "./RecipeDetail.css"
+import { RecipeComments } from "./RecipeComments";
+import { RecipeRating } from "./RecipeRating";
 // define a function which takes a single recipe arguement
 // and returns recipe detail
 // initialize current recipe state as an object
@@ -11,9 +13,17 @@ import "./RecipeDetail.css"
 export const RecipeDetail = () => {
     const [recipe, setRecipe] = useState([])
     const [ingredients, setIngredients] = useState([])
+    const [comments, setComments] = useState([])
     const [steps, setSteps] = useState([])
     const { recipeId } = useParams()
-
+    useEffect(
+        () => {
+            getRecipeComments(recipeId)
+                .then((data) =>
+                    setComments(data))
+        },
+        [recipeId]
+    )
     useEffect(
         () => {
             getRecipeDetail(recipeId)
@@ -39,30 +49,34 @@ export const RecipeDetail = () => {
         [recipeId]
     )
 
+
     return (
         <>
             {
                 <Container fluid="sm" className="recipe_detail" key={recipe.id}>
                     <Row>
 
-                        <Col>
-                            <Accordion defaultActiveKey={"0"} flush alwaysOpen>
+                        <Col bg="flat">
+                            <Accordion bg="flat" defaultActiveKey={"0"} flush alwaysOpen>
                                 <Accordion.Item eventKey="0">
-                                    <Accordion.Header>
+                                    <Accordion.Header bg="flat">
                                         {recipe.title}
                                     </Accordion.Header>
                                     <Accordion.Body>
                                         <Figure>
                                             <Figure.Image className="img-fluid shadow-4-strong"
-                                                class="recipe_detail_image"
+
                                                 alt={recipe?.title}
                                                 src={recipe?.img}
 
                                             />
-                                            <Figure.Caption>
+                                            <Figure.Caption className="recipe_content">
                                                 <p>Submitted by: {recipe.user?.name} </p>
-                                                <p>Date: {recipe.dateSubmitted}</p>
+                                                <p>Date: {recipe.dateSubmitted?.split(",")[0]}</p>
                                                 <p>Topic: {recipe.topic?.type}</p>
+                                                <p>
+                                                    Average Rating: {<RecipeRating recipe={recipe} />}
+                                                </p>
                                             </Figure.Caption>
                                         </Figure>
                                     </Accordion.Body>
@@ -93,6 +107,21 @@ export const RecipeDetail = () => {
                                                 })
                                             }
                                         </ol>
+                                    </Accordion.Body>
+                                </Accordion.Item>
+                                <Accordion.Item eventKey="3">
+                                    <Accordion.Header>
+                                        Comments
+                                    </Accordion.Header>
+                                    <Accordion.Body>
+                                        {/* <ul>
+                                            {
+                                                comments.map(comment => {
+                                                    return <li key={`comment--${comment.id}`}>{comment.comment}</li>
+                                                })
+                                            }
+                                        </ul> */}
+                                        <RecipeComments recipeId={recipeId} />
                                     </Accordion.Body>
                                 </Accordion.Item>
                             </Accordion>

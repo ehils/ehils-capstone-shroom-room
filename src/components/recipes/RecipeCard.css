@@ -1,0 +1,23 @@
+@import url("../../index.css");
+.recipe_card.card {
+    margin-top: 20px;
+    margin: 10px;
+    /* color: whitesmoke; */
+    background-color: cornsilk;
+    border-radius: 20px;
+    padding: 10px;
+    border: 10px solid darkgoldenrod;
+    max-width: 600px;
+    
+}
+.card-img-top {
+    border-radius: 20px;
+}
+.badge.rounded-pill.bg-flat {
+    background-color: darkolivegreen;
+}
+.card-header{
+    margin: 5px;
+    border-radius: 20px;
+    border-color: 5px solid darkgoldenrod;
+}

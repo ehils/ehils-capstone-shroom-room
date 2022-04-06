@@ -28,10 +28,6 @@ export const ShroomRoom = () => {
           return (
             <>
               <NavBar />
-            {users.map(user => {
-              if (user.id === parseInt(localStorage.getItem("shroom_room_user")))
-              return <h1>Hello {user.name}!</h1>
-            })}
               <ApplicationViews />
             </>
           );

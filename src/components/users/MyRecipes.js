@@ -56,17 +56,17 @@ export const MyRecipes = () => {
                                 <h2>{recipe.title}</h2>
                             </Link>
                             <Card.Subtitle>Submission Date:</Card.Subtitle>
-                            <Card.Text>{recipe.dateSubmitted}</Card.Text>
+                            <Card.Text>{recipe.dateSubmitted.split(",")[0]}</Card.Text>
                             <Card.Subtitle>Topic:</Card.Subtitle>
                             <Card.Text>{recipe.topic.type}</Card.Text>
                             <SelectedRecipeShrooms recipeId = {recipe.id}/><br></br>
                             
-                        <Button className="editButton" variant="primary" 
+                        <Button className="editButton" variant="flat" 
                         onClick={()=> {
                             history.push(`/editrecipe/${recipe.id}`)
                         }}
                         >Edit</Button>
-                        <Button className="editButton" variant="primary" onClick={() => {
+                        <Button className="editButton" variant="flat" onClick={() => {
                             deleteRecipe(recipe.id)
                         }}>
                             Delete</Button>

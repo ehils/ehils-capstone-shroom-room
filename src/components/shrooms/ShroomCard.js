@@ -15,10 +15,10 @@ export const ShroomCard = ({ shroom }) => {
                 <Card.Header as="h2">{shroom.name}</Card.Header>
                 <Card.Img variant="top" src={shroom.img} />
                 <Card.Body>
-                    <Card.Subtitle>Also Known As:</Card.Subtitle>
+                    {/* <Card.Subtitle>Also Known As:</Card.Subtitle>
                     <Card.Text>
                         {shroom.alsoKnownAs}
-                    </Card.Text>
+                    </Card.Text> */}
                     <Card.Subtitle>Edibility:</Card.Subtitle>
                     <Card.Text>{shroom.shroomToxicity?.type}</Card.Text>
                     <Link to={`/shrooms/${shroom.id}`}>

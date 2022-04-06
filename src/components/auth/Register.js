@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react"
+import { Button, Container } from "react-bootstrap"
 import { useHistory } from "react-router-dom"
 import { getSpecificEmail, postUser } from "../ApiManager"
 import "./Login.css"
@@ -40,6 +41,7 @@ export const Register = (props) => {
 
 
     return (
+        <Container className="registration_container">
         <main style={{ textAlign: "center" }}>
             <dialog className="dialog dialog--password" ref={conflictDialog}>
                 <div>Account with that email address already exists</div>
@@ -59,10 +61,11 @@ export const Register = (props) => {
                     <input onChange={updateUser} type="email" id="email" className="form-control" placeholder="Email address" required />
                 </fieldset>
                 <fieldset>
-                    <button type="submit"> Register </button>
+                    <Button variant="flat" type="submit"> Register </Button>
                 </fieldset>
             </form>
         </main>
+        </Container>
     )
 }
 

@@ -17,3 +17,17 @@ code {
   /* background-color: beige; */
   font-family: 'Poppins';
 }
+
+.hello {
+  margin: 20px;
+}
+.carousel_image.img-fluid {
+  background-color: goldenrod;
+  margin-bottom: 35px;
+  border-radius: 20px;
+  padding: 10px;
+  border: 10px solid darkgoldenrod;
+}
+#carousel_caption {
+  color:darkolivegreen;
+}

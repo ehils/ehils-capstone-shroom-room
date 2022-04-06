@@ -33,12 +33,12 @@ export const getUsers = () => {
 }
 // Home Line 16
 export const getRecipesExpanded = () => {
-    return fetch("http://localhost:8088/recipes?_expand=user&_expand=topic")
+    return fetch("http://localhost:8088/recipes?_expand=user&_expand=topic&_sort=dateSubmitted&_order=desc")
         .then(res => res.json())
 }
 // MyRecipes Line 16
 export const getUserRecipes = (userId) => {
-    return fetch(`http://localhost:8088/recipes?userId=${userId}&_expand=user&_expand=topic`)
+    return fetch(`http://localhost:8088/recipes?userId=${userId}&_expand=user&_expand=topic&_sort=dateSubmitted&_order=desc`)
         .then(res => res.json())
 }
 
@@ -46,6 +46,11 @@ export const getUserRecipes = (userId) => {
 // editRecipe Line 44
 export const getRecipeDetail = (recipeId) => {
     return fetch(`http://localhost:8088/recipes/${recipeId}?_expand=user&_expand=topic`)
+        .then(res => res.json())
+}
+// RecipeComments Line 
+export const getRecipe = (recipeId) => {
+    return fetch(`http://localhost:8088/recipes/${recipeId}`)
         .then(res => res.json())
 }
 // Edit RecipeLine 60
@@ -74,8 +79,19 @@ export const getRecipeMushrooms = (recipeId) => {
     return fetch(`http://localhost:8088/recipeShrooms?recipeId=${recipeId}&_expand=shroom`)
         .then(res => res.json())
 }
+// EditRecipe Line 51
+export const getRecipeComments = (recipeId) => {
+    return fetch(`http://localhost:8088/comments?recipeId=${recipeId}&_expand=user`)
+        .then(res => res.json())
+}
 export const getSpecificRecipeMushrooms = (shroomId) => {
     return fetch(`http://localhost:8088/recipeShrooms?shroomId=${shroomId}&_expand=recipe&_expand=shroom`)
         .then(res => res.json())
+}
+
+export const commentDelete = (id) => {
+    return fetch(`http://localhost:8088/comments/${id}`, {
+        method: "DELETE"
+    })
 }
 

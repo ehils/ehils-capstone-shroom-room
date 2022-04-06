@@ -3,3 +3,67 @@
 /* .recipe-detail-image{
     max-width: 1px;
 } */
+.col {
+    margin-top: 30px;
+    margin: 20px;
+    /* color: whitesmoke;
+    background-color: goldenrod; */
+    border-radius: 20px;
+    padding: 10px;
+    border: 10px solid darkgoldenrod;
+}
+.recipe_detail {
+    margin-top: 30px;
+}
+
+.accordion-button.collapsed {
+    /* color: whitesmoke; */
+    background-color: cornsilk; 
+}
+
+.accordion_header {
+    /* color: whitesmoke; */
+    background-color: cornsilk;
+}
+.accordion-collapse.collapse.show {
+    /* color: whitesmoke; */
+    background-color: cornsilk;
+}
+button.accordion-button {
+    /* color: whitesmoke !important; */
+    background-color: cornsilk!important;
+}
+/* button.accordion-button::after {
+    color: whitesmoke !important;
+} */
+/* p {
+    color: whitesmoke;  
+} */
+.accordion-body {
+    /* color: whitesmoke; */
+    background-color: cornsilk; 
+}
+.img-fluid.shadow-4-strong.figure-img.img-fluid {
+    margin: 5px;
+    border-radius: 10px;
+}
+.comment_item {
+    color:black;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-color:dimgrey;
+    border: solid 2px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.list_items {
+    list-style-type: none;
+}
+/* .header_item {
+    color: whitesmoke;
+    background-color: cornsilk; 
+} */
+/* .aria-expanded {
+    color: whitesmoke;
+    background-color: goldenrod;
+} */

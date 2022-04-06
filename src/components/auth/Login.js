@@ -1,8 +1,9 @@
 import React, { useRef, useState } from "react"
-import { Button, Carousel, Container, Image } from "react-bootstrap";
+import { Button, Carousel, Col, Container, Image, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
 import { getEmails } from "../ApiManager";
+import "./Login.css"
 // import { Carousel } from 'react-responsive-carousel';
 // import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -33,77 +34,68 @@ export const Login = () => {
 
     return (
         <>
-            
-            <Container className="main">
-            <Container className="login container" fluid="md">
-                <Carousel>
-                    <Carousel.Item>
-                        <Image className="carousel_image" fluid="sm"
-                            
-                            src="https://www.thesophisticatedcaveman.com/wp-content/uploads/2019/02/pan-fried-oyster-mushrooms.jpg"
-                            alt="First slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>Munch</h3>
-                            {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <Image fluid="sm"
-                            className="carousel_image"
-                            src="https://149366112.v2.pressablecdn.com/wp-content/uploads/2017/08/mushrooms-forest-e1504282799930.jpg"
-                            alt="Second slide"
-                        />
 
-                        <Carousel.Caption>
-                            <h3>Discover</h3>
-                            {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <Image fluid="sm"
-                            className="carousel_image"
-                            src="https://modernfarmer.com/wp-content/uploads/2016/09/mushroom-foraging-hedgehog.jpg"
-                            alt="Third slide"
-                        />
 
-                        <Carousel.Caption>
-                            <h3>Forage</h3>
-                            {/* <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
-            </Container>
+
+            <body
+            >
                 <main className="container--login">
-                <dialog className="dialog dialog--auth" ref={existDialog}>
-                    <div>User does not exist</div>
-                    <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
-                </dialog>
+                    <dialog className="dialog dialog--auth" ref={existDialog}>
+                        <div>User does not exist</div>
+                        <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
+                    </dialog>
 
-                <section>
-                    <form className="form--login" onSubmit={handleLogin}>
-                        <h1>Welcome to Shroom Room</h1>
-                        <h2>Please sign in</h2>
-                        <fieldset>
-                            <label htmlFor="inputEmail"> Email address </label>
-                            <input type="email"
-                                onChange={evt => set(evt.target.value)}
-                                className="form-control"
-                                placeholder="Email address"
-                                required autoFocus />
-                        </fieldset>
-                        <fieldset>
-                            <Button type="submit">
-                                Sign in
-                            </Button>
-                        </fieldset>
-                    </form>
-                </section>
-                <section className="link--register">
-                    <Link to="/register">Not a member yet?</Link>
-                </section>
-            </main>
-            </Container>
+                    <section className="shroom_room_logo">
+
+                        <img className="mushroom_logo" src="https://www.pngkit.com/png/full/769-7690871_747-x-800-2-red-mushroom.png" width="40px" height="40px" />
+
+                        <h1 className="sign_in">Welcome to Shroom Room</h1>
+
+                        <img className="mushroom_logo" src="https://www.pngkit.com/png/full/769-7690871_747-x-800-2-red-mushroom.png" width="40px" height="40px" />
+
+                    </section>
+
+                    <Container bg="dark" variant="dark" className="main" fluid="xs">
+                        <section>
+                            <form className="form--login" onSubmit={handleLogin}>
+
+                                <Row>
+                                    <Col>
+                                        <h2>Please sign in</h2>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <fieldset>
+                                            <label htmlFor="inputEmail"> Email address </label>
+                                            <input type="email"
+                                                onChange={evt => set(evt.target.value)}
+                                                className="form-control"
+                                                placeholder="Email address"
+                                                required autoFocus />
+                                        </fieldset>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <fieldset>
+                                            <Button variant="flat" type="submit">
+                                                Sign in
+                                            </Button>
+                                        </fieldset>
+                                    </Col>
+                                </Row>
+
+                            </form>
+                        </section>
+
+                        <section className="link--register">
+                            <Link to="/register">Not a member yet?</Link>
+                        </section>
+                    </Container>
+
+                </main>
+            </body>
 
         </>
     )

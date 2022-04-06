@@ -21,13 +21,14 @@ export const Recipes = () => {
             setRecipes(data)
         })
     },[])
+    // const initialSort = recipes.sort((a, b) => a.id.localeCompare(b.id)).reverse()
     return (
         <>
         {/* search recipes module-use for each page */}
             <Container fluid="sm">
             {
                 recipes.map(recipe => {
-                    return <RecipeCard recipe={recipe} />
+                    return <RecipeCard key={recipe.id} recipe={recipe} />
                 })
             }
             </Container>

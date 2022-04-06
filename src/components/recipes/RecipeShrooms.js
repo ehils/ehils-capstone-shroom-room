@@ -25,16 +25,19 @@ export const SelectedRecipeShrooms = ({ recipeId }) => {
 
     // filterrecipe topic array to find if the recipeObject Id matches recipetopic.recipeId
     return (
-        <>
+        <><ul>
             {
                 recipeShrooms.map(recipeShroom => {
-                    return <Link to={`/shrooms/${recipeShroom.shroomId}`}>
-                        <Badge pill bg="success">{recipeShroom.shroom.name}</Badge>
-                    </Link>
+                    return <li key={recipeShroom.id}>
+                        <Link to={`/shrooms/${recipeShroom.shroomId}`}>
+                            <Badge key={recipeShroom.id} size="lg" pill bg="flat">{recipeShroom.shroom.name}</Badge>
+                        </Link>
+                    </li>
 
                 }
                 )
             }
+        </ul>
         </>
     )
 }

@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# ShroomRoom
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## A mushroom-based recipe and information application
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+### Background
 
-### `npm start`
+The internet provides a multitude of recipes for just about any type of cooking, and mushrooms are no exception.  However, as someone who cooks a variety of different mushroom based recipes on a regular basis, there ceases to be any sort of mushroom oriented website specializing  in fungi-based culinary endeavors and information.  This application aims to provide the users with a single platform for finding mushroom oriented recipes, detailed information about specific mushrooms, and information on foraging and collecting different mushroom species.
+### Features
+- Create/Edit/Delete recipes
+- Upload images
+- Comments and rating feature
+- Rating average calculated and displayed
+- Mushroom tags that take you to information on specific mushroom
+- Filtered recipe pages based on mushroom tags
+- Foraging Tips and information with links to external resources
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Shroom Room ERD](https://drawsql.app/nss-21/diagrams/shroom-room-erd)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Built With
+- [React.js](https://reactjs.org/)
+- [React-Bootstrap](https://react-bootstrap.github.io/)
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+>
+- npm
+> `npm install npm@latest -g`
+- react-boostrap
+> `npm install react-bootstrap bootstrap`
 
-### `npm run build`
+### Installation
+1. clone repo
+    - `git clone git@github.com:ehils/ehils-capstone-shroom-room.git `
+2. Open a new tab in terminal and open `shroom-room-api`
+    - cd `shroom-room-api`
+3. Run `json` server
+    - `json-server -p 8088 database.json -w`
+4. In `shroom-room` run
+    - `npm start`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
+*Live demo of app usage to be added here*
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Contributing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-### `npm run eject`
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact
+[Erich Hils](mailto:mrerichhils@gmail.com?subject=[GitHub]%20Source%20Han%20Sans)
+[Project Link](https://github.com/ehils/ehils-capstone-shroom-room)
+ 
